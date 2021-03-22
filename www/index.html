@@ -11,43 +11,40 @@
 </head>
 <body>
 
-    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-pink-500 mb-3">
+    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-red-700 mb-3">
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-            <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white" href="#pablo">
-              Plataforma INC
-            </a>
-            <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
-              <i class="fas fa-bars"></i>
-            </button>
+            <img src="images/logo-comeduc-color-trans3.png" class="bg-white w-32">
           </div>
           <div class="lg:flex flex-grow items-center hidden" id="example-collapse-navbar">
             <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li class="nav-item">
-                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  <i class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span class="ml-2">TEST</span>
+                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="">
+                  <span class="ml-2">Administración</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  <i class="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span class="ml-2">TEST</span>
+                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="">
+                  <span class="ml-2">Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                  <i class="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span class="ml-2">TEST</span>
+                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="">
+                  <span class="ml-2">Mis Cursos</span>
                 </a>
+              </li>
+              <li class="nav-item">
+                <div class="flex flex-wrap">
+                  <div class="w-20 px-3 py-2">
+                    <img src="https://demos.creative-tim.com/tailwindcss-starter-project/_next/static/images/team-4-470x470-4ef82ef45a9598d24c4c951ead4d626a.png" alt="..." class="shadow-lg rounded-full max-w-full h-auto align-middle border-none" />
+                  </div>
+                  <span class="ml-2 px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75">Usuario</span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <script>
-        function toggleNavbar(collapseID){
-          document.getElementById(collapseID).classList.toggle("hidden");
-          document.getElementById(collapseID).classList.toggle("flex");
-        }
-      </script>
     
 </body>
 </html>
