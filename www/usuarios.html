@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/tailwind.min.css">
+    <!-- plugin jsgrid -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js"></script>
+
+    <!-- plugin jsgrid -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
     <title>Plataforma INC</title>
 </head>
 <body>
@@ -59,8 +66,8 @@
             <!--
               Admin dropdown panel.
             -->
-            <div id="dropAdmin" class="hidden z-10 transform opacity-100 scale-100 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
-              <a href="usuarios.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Usuarios</a>
+            <div id="dropAdmin" class="hidden z-10 transform opacity-100 scale-100 origin-top-right absolute right-0 mt-2 w-52 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Usuarios</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Crear Usuarios Carga Masiva</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Validación Cursos Externo</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Parámetros Generales</a>
@@ -125,16 +132,18 @@
       Menu open: "block", Menu closed: "hidden"
     -->
     <div class="block sm:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1">
+      <div class="px-2 pt-2 pb-3 space-y-1 z-10">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Administrador</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Mis Cursos</a>
       </div>
     </div>
   </nav>
-
+  <!-- contenido -->
+  <h1 class="mt-5 text-black absolute font-bold text-xl">Administrador de Usuarios</h1>
+<div class="mt-20" id="jsGrid"></div>
+<!-- fin contenido -->
 </body>
 <!-- Footer -->
 <footer class="footer relative pt-20 ">
@@ -149,3 +158,45 @@
   </div>
 </footer>
 </html>
+
+
+<script>
+    // jsgrid
+    var usuarios = [
+        { "Usuario": "12345678-1", "Nombre": "Miguel", "Apellido": "Soto", "e-mail": "miguelsoto@correo.cl", "Corporación": "Colegio Santiago", "Estado": "Activo", "Perfil": "Docente", "Fecha Creación": "02-03-2021"},
+        { "Usuario": "45378903-1", "Nombre": "Francisca", "Apellido": "Hernandez", "e-mail": "franciscahernandez@correo.cl", "Corporación": "Instituto Rancagua", "Estado": "Inactivo", "Perfil": "JAF", "Fecha Creación": "02-01-2021"},
+        { "Usuario": "96753234-1", "Nombre": "Rodrigo", "Apellido": "Avendaño", "e-mail": "rodrigoavendaño@correo.cl", "Corporación": "Colegio Externo", "Estado": "Activo", "Perfil": "Auxiliar", "Fecha Creación": "03-03-2021"}
+    ];
+  
+    $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
+  
+        editing: true,
+        sorting: true,
+        paging: true,
+  
+        data: usuarios,
+  
+        fields: [
+            { name: "Usuario", type: "text", width: 60, validate: "required", align: "center"},
+            { name: "Nombre", type: "text", width: 50, align: "center" },
+            { name: "Apellido", type: "text", width: 50, align: "center" },
+            { name: "e-mail", type: "text", width: 110, align: "center" },
+            { name: "Corporación", type: "text", width: 70, align: "center" },
+            { name: "Estado", type: "text", width: 50, align: "center" },
+            { name: "Perfil", type: "text", width: 50, align: "center" },
+            { name: "Fecha Creación", type: "text", width: 50, align: "center" },
+            { type: "control", 
+              modeSwitchButton: false,
+              editButton: true,
+              headerTemplate: function() {
+                return $('<button class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-red-500 hover:bg-red-700">').attr("type", "button").text("Agregar")
+                  .on("click", function () {
+                    showDetailDialog("Agregar", {});
+                  });
+              }
+          }
+        ]
+    });
+  </script>

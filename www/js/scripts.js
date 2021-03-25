@@ -7,4 +7,14 @@ if (x.style.display === "none") {
 } else {
     x.style.display = "none";
 }
-}
+};
+
+function toggleDropDownUser() {
+    var element = document.getElementById("dropUser");
+    element.classList.toggle("hidden");
+};
+
+function toggleDropDownAdmin() {
+    var element = document.getElementById("dropAdmin");
+    element.classList.toggle("hidden");
+};
