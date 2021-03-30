@@ -18,3 +18,23 @@ function toggleDropDownAdmin() {
     var element = document.getElementById("dropAdmin");
     element.classList.toggle("hidden");
 };
+
+
+function openModal() {
+
+    var modalBack = document.getElementById("modal-overlay");
+    var modal = document.getElementById("modal");
+
+    modalBack.classList.toggle("hidden");
+    modal.classList.toggle("hidden");
+
+}
+
+function closeModal() {
+
+    var modalBack = document.getElementById("modal-overlay");
+    var modal = document.getElementById("modal");
+
+    modalBack.classList.toggle("hidden");
+    modal.classList.toggle("hidden");
+}
