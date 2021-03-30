@@ -32,7 +32,7 @@
   
               Menu open: "hidden", Menu closed: "block"
             -->
-            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg class="z-10 block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             <!-- Icon when menu is open. -->
@@ -74,7 +74,7 @@
           </div>
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <!-- <a class="ml-12 text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Administrador</a> -->
-                <a href="#" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Dashboard</a>
+                <a href="index.html" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Dashboard</a>
                 <a href="#" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Mis Cursos</a>
                 
                 
@@ -140,8 +140,385 @@
     </div>
   </nav>
   <!-- contenido -->
-  <h1 class="mt-5 text-black absolute font-bold text-xl">Administrador de Usuarios</h1>
-<div class="mt-20" id="jsGrid"></div>
+  <div class="flex flex-nowrap py-2">
+    <h2 class="text-xl font-semibold text-left px-6 py-2">Administrador de Usuarios</h2>
+    <div class="content-end">
+      <button id="open-button" class="px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700" onclick="openModal()">Crear Usuario</button>
+    </div>
+  </div>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Usuario
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Nombre
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Apellido
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                e-mail
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Corporación
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Estado
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Perfil
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Fecha Creación
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Acción
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                12345678-1
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                Miguel
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                Soto
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                MiguelSoto@correo.cl
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Colegio Santiago
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Activo
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Docente
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                02-03-2021
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900" onclick="openModalEdit()">Editar</a>
+              </td>
+            </tr>
+
+            <!-- More items... -->
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                45678903-1
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                Francisca
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                Hernandez
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                FranciscaHernandez@correo.cl
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Instituto Rancagua
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                  Inactivo
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Supervisor
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                02-01-2021
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+              </td>
+            </tr>
+
+            <!-- More items... -->
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                9675234-1
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                Rodrigo
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                Avendaño
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                RodrigoAvendaño@correo.cl
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Colegio Externo
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Activo
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Auxiliar
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                03-03-2021
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+              </td>
+            </tr>
+
+            <!-- More items... -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal crear usuario -->
+
+<div id="modal-overlay" class="z-20 fixed top-0 left-0 w-full h-full bg-black-40 hidden"></div>
+
+<div id="modal" class="modal fixed max-w-full max-h-full z-30 flex flex-col rounded bg-gray-100 shadow lg:max-w-4xl hidden">
+  <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded z-10 absolute right-5 top-1" id="close-button" onclick="closeModal()">Cerrar</button>
+  <div class="absolute left-0 top-0 w-full h-full overflow-auto">
+    <div class="pt-2 px-4">
+      <h2 class="text-xl font-semibold text-center">Crear Usuario</h2>
+        <div class="container mx-auto my-2 p-6 bg-gray-100 flex items-center justify-start w-full">
+          <form action="" class="w-full">
+              <div>
+                  <p class="font-bold">Información Personal</p><hr class="border mb-4">
+              </div>
+              <div class="flex flex-nowrap">
+                  <div class="flex mb-2 w-full">
+                      <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Usuario</Label>
+                      <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                    </div>
+                    <div class="flex mb-2 w-full">
+                      <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Selección Perfil</Label>
+                        <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option>Seleccionar</option>
+                        </select>
+                  </div>
+                </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Nombre</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Apellido</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Edad</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Genero</Label>
+                <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+          </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Estado Civil</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+              </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Región</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Comuna</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Correo</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Teléfono</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="mt-4">
+              <p class="font-bold">Información Laboral</p><hr class="border mb-4">
+          </div>
+          <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Lugar de Trabajo</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Cargo</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Familia de Cargo</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Área</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex flex-nowrap">
+
+              <div class="flex mb-2 w-full">
+                  <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Título</Label>
+                  <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                </div>
+                <div class="w-full flex items-center">
+                    <button class="ml-80 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700">Agregar</button>
+                </div>
+
+            </div>
+
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal editar usuario -->
+
+<div id="modal-overlay-edit" class="z-20 fixed top-0 left-0 w-full h-full bg-black-40 hidden"></div>
+
+<div id="modal-edit" class="modal fixed max-w-full max-h-full z-30 flex flex-col rounded bg-gray-100 shadow lg:max-w-4xl hidden">
+  <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded z-10 absolute right-5 top-1" id="close-button" onclick="closeModalEdit()">Cerrar</button>
+  <div class="absolute left-0 top-0 w-full h-full overflow-auto">
+    <div class="pt-2 px-4">
+      <h2 class="text-xl font-semibold text-center">Editar Usuario</h2>
+        <div class="container mx-auto my-2 p-6 bg-gray-100 flex items-center justify-start w-full">
+          <form action="" class="w-full">
+              <div>
+                  <p class="font-bold">Información Personal</p><hr class="border mb-4">
+              </div>
+              <div class="flex flex-nowrap">
+                  <div class="flex mb-2 w-full">
+                      <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Usuario</Label>
+                      <input type="text" placeholder="12345678-1" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500" disabled>
+                    </div>
+                    <div class="flex mb-2 w-full">
+                      <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Selección Perfil</Label>
+                        <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                          <option>Seleccionar</option>
+                        </select>
+                  </div>
+                </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Nombre</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Apellido</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Edad</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Genero</Label>
+                <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+          </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Estado Civil</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+              </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Región</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Comuna</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Correo</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Teléfono</Label>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+            </div>
+            <div class="mt-4">
+              <p class="font-bold">Información Laboral</p><hr class="border mb-4">
+          </div>
+          <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Lugar de Trabajo</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Cargo</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Familia de Cargo</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex mb-2 w-full">
+              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Área</Label>
+              <select id="country" name="country" autocomplete="country" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option>Seleccionar</option>
+                </select>
+            </div>
+            <div class="flex flex-nowrap">
+
+              <div class="flex mb-2 w-full">
+                  <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Título</Label>
+                  <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                </div>
+                <div class="w-full flex items-center">
+                    <button class="ml-80 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700">Agregar</button>
+                </div>
+
+            </div>
+
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
 <!-- fin contenido -->
 </body>
 <!-- Footer -->
@@ -157,45 +534,3 @@
   </div>
 </footer>
 </html>
-
-
-<script>
-    // jsgrid
-    var usuarios = [
-        { "Usuario": "12345678-1", "Nombre": "Miguel", "Apellido": "Soto", "e-mail": "miguelsoto@correo.cl", "Corporación": "Colegio Santiago", "Estado": "Activo", "Perfil": "Docente", "Fecha Creación": "02-03-2021"},
-        { "Usuario": "45378903-1", "Nombre": "Francisca", "Apellido": "Hernandez", "e-mail": "franciscahernandez@correo.cl", "Corporación": "Instituto Rancagua", "Estado": "Inactivo", "Perfil": "JAF", "Fecha Creación": "02-01-2021"},
-        { "Usuario": "96753234-1", "Nombre": "Rodrigo", "Apellido": "Avendaño", "e-mail": "rodrigoavendaño@correo.cl", "Corporación": "Colegio Externo", "Estado": "Activo", "Perfil": "Auxiliar", "Fecha Creación": "03-03-2021"}
-    ];
-  
-    $("#jsGrid").jsGrid({
-        width: "100%",
-        height: "400px",
-  
-        editing: true,
-        sorting: true,
-        paging: true,
-  
-        data: usuarios,
-  
-        fields: [
-            { name: "Usuario", type: "text", width: 60, validate: "required", align: "center"},
-            { name: "Nombre", type: "text", width: 50, align: "center" },
-            { name: "Apellido", type: "text", width: 50, align: "center" },
-            { name: "e-mail", type: "text", width: 110, align: "center" },
-            { name: "Corporación", type: "text", width: 70, align: "center" },
-            { name: "Estado", type: "text", width: 50, align: "center" },
-            { name: "Perfil", type: "text", width: 50, align: "center" },
-            { name: "Fecha Creación", type: "text", width: 50, align: "center" },
-            { type: "control", 
-              modeSwitchButton: false,
-              editButton: true,
-              headerTemplate: function() {
-                return $('<button class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-red-500 hover:bg-red-700">').attr("type", "button").text("Agregar")
-                  .on("click", function () {
-                    showDetailDialog("Agregar", {});
-                  });
-              }
-          }
-        ]
-    });
-  </script>

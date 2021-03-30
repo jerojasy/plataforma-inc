@@ -38,3 +38,22 @@ function closeModal() {
     modalBack.classList.toggle("hidden");
     modal.classList.toggle("hidden");
 }
+
+function openModalEdit() {
+
+    var modalBackEdit = document.getElementById("modal-overlay-edit");
+    var modalEdit = document.getElementById("modal-edit");
+
+    modalBackEdit.classList.toggle("hidden");
+    modalEdit.classList.toggle("hidden");
+
+}
+
+function closeModalEdit() {
+
+    var modalBackEdit = document.getElementById("modal-overlay-edit");
+    var modalEdit = document.getElementById("modal-edit");
+
+    modalBackEdit.classList.toggle("hidden");
+    modalEdit.classList.toggle("hidden");
+}
