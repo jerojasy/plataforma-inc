@@ -69,26 +69,26 @@
                 <!-- <a class="ml-12 text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Administrador</a> -->
                 <a href="index.html" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Dashboard</a>
                 <!-- <a href="cursos.html" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Mis Cursos</a> -->
-                            <!--
+                                            <!--
               Cursos dropdown panel.
             -->
-                <div class="ml-3 relative">
-                  <div>
-                    <button onclick="toggleDropDownCursos()" class="py-3 bg-transparent flex text-sm rounded-full focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-offset-gray-800 focus:ring-white">
-                      <div class="grid focus:outline-none">
-                        <span class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Cursos</span>
-                      </div>
-                      
-                    </button>
+            <div class="ml-3 relative">
+              <div>
+                <button onclick="toggleDropDownCursos()" class="py-3 bg-transparent flex text-sm rounded-full focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-offset-gray-800 focus:ring-white">
+                  <div class="grid focus:outline-none">
+                    <span class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Cursos</span>
                   </div>
-                  <!--
-                    Cursos dropdown panel.
-                  -->
-                  <div id="dropCursos" class="hidden z-10 transform opacity-100 scale-100 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
-                    <a href="cursos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Cursos</a>
-                    <a href="cursos_externos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Cursos Externos</a>
-                  </div>
-                </div>
+                  
+                </button>
+              </div>
+              <!--
+                Cursos dropdown panel.
+              -->
+              <div id="dropCursos" class="hidden z-10 transform opacity-100 scale-100 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
+                <a href="cursos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Cursos</a>
+                <a href="cursos_externos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Cursos Externos</a>
+              </div>
+            </div>
                 
                 
            
@@ -151,7 +151,161 @@
       </div>
     </div>
   </nav>
+<!-- contenido -->
+<div class="tab mt-10 border-b full-grow">
+  <button class="tablinks focus:outline-none bg-white inline-block py-2 px-4 text-gray-400 hover:text-gray-600 font-semibold" onclick="openTab(event, 'cursosPendientes')">Cursos Registrados</button>
+  <button class="tablinks focus:outline-none bg-white inline-block py-2 px-4 text-gray-400 hover:text-gray-600 font-semibold" onclick="openTab(event, 'cursosExternos')">Cursos Libres</button>
+</div>
 
+<div id="cursosPendientes" class="tabcontent mt-5" style="display: none;">
+      <!-- Grid Cursos -->
+        <div class="container mx-auto px-4 py-0 ">
+          <h1 class="text-2xl font-bold text-gray-800 mb-5">Cursos Pendientes</h1>
+          <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="https://aula.incchile.cl/webservice/pluginfile.php/27/course/overviewfiles/Bienvenidos%20al%20curso%20Gimnasia%20en%20pausa%20saludable%281%29.png?token=8b659dbdf7b8c0724872ea52c6067e3a" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Aula OTEC INC Chile</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="https://aula.incchile.cl/webservice/pluginfile.php/1066/course/overviewfiles/BIENVENIDOS%20CONFL.%20TELE.%20COVID.png?token=8b659dbdf7b8c0724872ea52c6067e3a" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Teletrabajo</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="https://aula.incchile.cl/webservice/pluginfile.php/1092/course/overviewfiles/BIENVENIDOS%20CONFL.%20TELE.%20COVID%20%281%29.png?token=8b659dbdf7b8c0724872ea52c6067e3a" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">COVID-19</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="images/y9DpT.jpg" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="images/y9DpT.jpg" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="images/y9DpT.jpg" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="images/y9DpT.jpg" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+              </div>
+            </div>
+            <!-- card -->
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img class="w-full" src="images/y9DpT.jpg" alt="">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+              </div>
+            </div>
+            <!-- card -->
+          </div>
+        </div>
+
+      <!-- fin grid cursos -->
+</div>
+<div id="cursosExternos" class="tabcontent mt-5" style="display: none;">
+      <!-- Grid Cursos -->
+      <div class="container mx-auto px-4 py-0 mt-5">
+        <h1 class="text-2xl font-bold text-gray-800 mb-5">Cursos Libres</h1>
+        <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img class="w-full" src="images/y9DpT.jpg" alt="">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">Lorem Ipsum</div>
+            </div>
+          </div>
+          <!-- card -->
+        </div>
+      </div>
+
+    <!-- fin grid cursos -->
+</div>
+
+
+<!-- <div class="p-8">
+
+    <ul class="list-reset flex border-b full-grow">
+    <li class="-mb-px mr-1">
+      <button class="tablinks bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-gray-800 font-semibold" href="" onclick="cursosTab()">Cursos Pendientes</button>
+    </li>
+    <li class="mr-1">
+      <button class="tablinks bg-white inline-block py-2 px-4 text-gray-400 hover:text-gray-600 font-semibold" href="" onclick="cursosTab()">Cursos Externos</button>
+    </li>
+    </ul>
+      
+      </div> -->
+
+
+<!-- fin contenido -->
 </body>
 <!-- Footer -->
 <footer class="footer relative pt-20 ">

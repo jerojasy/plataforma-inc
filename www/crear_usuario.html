@@ -68,8 +68,27 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <!-- <a class="ml-12 text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Administrador</a> -->
                 <a href="#" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Dashboard</a>
-                <a href="#" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Mis Cursos</a>
-                
+                <!-- <a href="#" class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Mis Cursos</a> -->
+                                            <!--
+              Cursos dropdown panel.
+            -->
+            <div class="ml-3 relative">
+              <div>
+                <button onclick="toggleDropDownCursos()" class="py-3 bg-transparent flex text-sm rounded-full focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-offset-gray-800 focus:ring-white">
+                  <div class="grid focus:outline-none">
+                    <span class="text-white px-3 py-2 text-sm font-medium flex items-center border-b-2 border-transparent hover:bg-red-900 rounded-full transition duration-300">Cursos</span>
+                  </div>
+                  
+                </button>
+              </div>
+              <!--
+                Cursos dropdown panel.
+              -->
+              <div id="dropCursos" class="hidden z-10 transform opacity-100 scale-100 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
+                <a href="cursos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Cursos</a>
+                <a href="cursos_externos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Cursos Externos</a>
+              </div>
+            </div>
                 
                 
            
