@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/tailwind.min.css">
+
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js"></script>
+    <title>Plataforma INC</title>
+</head>
+<body>
+    <!-- header -->
+  <nav class="shadow">
+    <div class="w-full mx-auto px-2 h-auto relative overflow-visible bg-red-800 sm:px-6 lg:px-8" id="container">
+      <div class="relative flex items-center justify-between h-16">
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="hidden lg:block h-12 w-auto" src="images/logo-comeduc-color-trans3.png" alt="Workflow">
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- fin header -->
+  <!-- contenido -->
+    <div class="container mx-auto mt-10 px-4 h-full">
+        <h2 class="text-2xl font-semibold text-center mb-5">Activación de Cuenta</h2>
+        <p class="text-lg font-semibold text-center mb-5">Bienvenido!, estás a un paso de activar tu cuenta: $correo.</p>
+        <p class="text-lg font-semibold text-center mb-5">Para poder activarla es necesario que actualices tu clave de acceso.</p>
+        <div class="flex content-center items-center justify-center h-full">
+        <div class="w-full lg:w-4/12 px-4">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-200 border-0">
+            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                <form class="mt-10" id="formulario">
+                <div class="relative w-full mb-3">
+                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                        Nueva Contraseña
+                    </label>
+                    <input name="password1" id="password1" type="password" class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" style="transition: all 0.15s ease 0s;" required/>
+                    <ul class="block text-red-700 text-xs font-medium mb-2 mt-1 hidden" id="pass1">
+                        <li>- Tu contraseña debe tener mínimo 8 carácteres.</li>
+                        <li>- Al menos 1 letra Mayúscula.</li>
+                        <li>- Al menos 1 letra Minúscula.</li>
+                        <li>- Al menos 1 Número.</li>
+                    </ul>
+                    <label id="pass1ok" class="block text-green-500 text-xs font-bold mb-2 mt-1 hidden" for="grid-password">
+                        Tu contraseña cumple con los requisitos.
+                    </label>
+                </div>
+                <div class="relative w-full mb-3">
+                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                        Confirme Contraseña
+                    </label>
+                    <input name="password2" id="password2" type="password" class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" style="transition: all 0.15s ease 0s;" required/>
+                    <label id="pass2" class="block text-red-700 text-xs font-medium mb-2 mt-1 hidden" for="grid-password">
+                        Las contraseñas no coinciden.
+                    </label>
+                    <label id="pass2ok" class="block text-green-500 text-xs font-bold mb-2 mt-1 hidden" for="grid-password">
+                        Las contraseñas coinciden correctamente.
+                    </label>
+                </div>
+                <div class="text-white text-center px-4 py-2 border-0 rounded relative mb-4 bg-red-500 text-sm">
+                    <span class="inline-block align-middle mr-8">
+                      <b class="capitalize">Alerta!</b> Ocurrió un error, inténtelo mas tarde.
+                    </span>
+                  </div>
+                <div class="text-center mt-6">
+                    <button class="bg-red-600 text-white active:bg-red-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:bg-red-700 shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full" type="submit" style="transition: all 0.15s ease 0s;">
+                    Activar
+                    </button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  <!-- fin contenido -->
+</body>
+<!-- Footer -->
+<footer class="footer relative pt-15 botom-0">
+  <div class="container mx-auto bg-gray-600 max-w-full">
+      <div class="mt-16 flex flex-col items-center">
+          <div class="sm:w-2/3 text-center py-6">
+              <p class="text-sm text-white font-bold mb-2">
+                Copyright © 2020. All Rights Reserved. Fundación Educacional Comeduc
+              </p>
+          </div>
+      </div>
+  </div>
+</footer>
+</html>
+<!-- validación password -->
+<script>
+    const formulario = document.getElementById('formulario');
+    const inputs = document.querySelectorAll('#formulario input');
+
+    const regex = {
+        password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})(\S)/
+    }
+// validar que las contraseñas coincidan
+const validarPassword2 = () => {
+    const inputPasword1 = document.getElementById('password1');
+    const inputPasword2 = document.getElementById('password2');
+
+    if(inputPasword2.value !== inputPasword1.value){
+        document.getElementById('pass2').classList.remove('hidden');
+        document.getElementById('pass2ok').classList.add('hidden');
+    }else {
+        document.getElementById('pass2').classList.add('hidden');
+        document.getElementById('pass2ok').classList.remove('hidden');
+    }
+}
+// validar contraseña coincida con el regex
+const validarPassword = (e) => {
+   switch (e.target.name) {
+       case "password1":
+            if(regex.password.test(e.target.value)){
+                document.getElementById('pass1').classList.add('hidden');
+                document.getElementById('pass1ok').classList.remove('hidden');
+                validarPassword2();
+            } else {
+                document.getElementById('pass1').classList.remove('hidden');
+                document.getElementById('pass1ok').classList.add('hidden');
+            }
+       break;
+       case "password2":
+            validarPassword2();
+       break;
+   }
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validarPassword);
+    input.addEventListener('blur', validarPassword);
+});
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+});
+</script>

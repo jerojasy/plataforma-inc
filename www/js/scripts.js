@@ -77,3 +77,14 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += "bg-gray-200 border-l border-t border-r rounded-t text-gray-800 font-semibold";
   }
+
+//   modal aprobador cursos externos
+
+  function crearCursoExterno() {
+
+    var modalBack = document.getElementById("modal-overlay");
+    var modal = document.getElementById("modal");
+
+    modalBack.classList.toggle("hidden");
+    modal.classList.toggle("hidden");
+}

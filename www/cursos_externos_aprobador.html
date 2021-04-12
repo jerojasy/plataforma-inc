@@ -153,9 +153,9 @@
   </nav>
 <!-- contenido -->
 <div class="flex flex-nowrap py-2">
-  <h2 class="text-xl font-semibold text-left px-6 py-2">Mis Cursos Externos</h2>
+  <h2 class="text-xl font-semibold text-left px-6 py-2">Aprobación Cursos Externos</h2>
   <div class="content-end">
-    <button class="absolute right-5 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700" onclick="openModal()">Registrar Curso Externo</button>
+    <button class="absolute right-5 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700" onclick="crearCursoExterno()">Registrar Curso Externo</button>
   </div>
 </div>
 
@@ -225,7 +225,7 @@
                       100 Hrs.
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900" onclick="openModalEdit()">Ver</a>
+                      <a href="#" class="text-indigo-600 hover:text-indigo-900" onclick="openModalEdit()">Editar/Ver</a>
                     </td>
                   </tr>
       
@@ -258,7 +258,7 @@
                       200 Hrs.
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar/Ver</a>
                     </td>
                   </tr>
       
@@ -291,7 +291,7 @@
                       1 Hr.
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar/Ver</a>
                     </td>
                   </tr>
       
@@ -303,7 +303,7 @@
         </div>
       </div>
       <!-- fin grilla agregar cursos externos -->
-            <!-- Modal crear curso externo -->
+      <!-- Modal crear curso externo aprobador-->
 
 <div id="modal-overlay" class="z-20 fixed top-0 left-0 w-full h-full bg-black-40 hidden"></div>
 
@@ -311,7 +311,7 @@
   <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded z-10 absolute right-5 top-1" id="close-button" onclick="closeModal()">Cerrar</button>
   <div class="absolute left-0 top-0 w-full h-full overflow-auto">
     <div class="pt-2 px-4">
-      <h2 class="text-xl font-semibold text-center">Crear Curso Externo</h2>
+      <h2 class="text-xl font-semibold text-center">Crear Curso Externo (Supervisor)</h2>
         <div class="container mx-auto my-2 p-6 bg-gray-100 flex items-center justify-start w-full">
           <form action="" class="w-full">
               <div>
@@ -350,19 +350,18 @@
           </div>
           <div class="flex mb-2 w-full">
               <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Estado</Label>
-              <select id="" name="" autocomplete="" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500" disabled>
-                  <option class="text-yellow-700">Pendiente</option>
+              <select id="" name="" autocomplete="" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
                   <option class="text-green-700">Aprobado</option>
                   <option>Seleccionar</option>
                 </select>
             </div>
             <div class="flex mb-2 w-full">
               <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Fecha Aprobación</Label>
-              <input type="date" class="disabled:opacity-50 w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500" disabled>
+              <input type="date" value="2021-03-20" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none disabled:bg-gray-300 focus:outline-none focus:bg-white focus:border-gray-500" disabled>
             </div>
             <div class="flex mb-2 w-full">
               <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Detalle Aprobación</Label>
-              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500" disabled>
+              <input type="text" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
             </div>
             <div class="flex mb-2 w-full">
               <button class="absolute right-5 ml-80 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700">Agregar</button>
@@ -373,89 +372,78 @@
     </div>
   </div>
 </div>
-<!-- Modal VER curso externo-->
+ <!-- Modal EDITAR curso externo aprobador-->
 
-<div id="modal-overlay-edit" class="z-20 fixed top-0 left-0 w-full h-full bg-black-40 hidden"></div>
+ <div id="modal-overlay-edit" class="z-20 fixed top-0 left-0 w-full h-full bg-black-40 hidden"></div>
 
-<div id="modal-edit" class="modal fixed max-w-full max-h-full z-30 flex flex-col rounded bg-gray-100 shadow lg:max-w-4xl hidden">
-  <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded z-10 absolute right-5 top-1" id="close-button" onclick="closeModalEdit()">Cerrar</button>
-  <div class="absolute left-0 top-0 w-full h-full overflow-auto">
-    <div class="pt-2 px-4">
-      <h2 class="text-xl font-semibold text-center">Detalle Curso Externo</h2>
-        <div class="container mx-auto my-2 p-6 bg-gray-100 flex items-center justify-start w-full">
-          <form action="" class="w-full">
-              <div>
-                  <p class="font-bold">Información del Curso</p><hr class="border mb-4">
-              </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Curso</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">Fundamentos 1</Label>
-              <!-- <input type="text" disabled placeholder="Fundamentos 1" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Establecimiento</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">Universidad Estatal</Label>
-              <!-- <input type="text" disabled placeholder="Universidad Estatal" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Fecha Curso</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">20/03/2021</Label>
-              <!-- <input type="date" disabled value="2021-03-20" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Horas Cursadas</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">100 Hrs.</Label>
-              <!-- <input type="text" disabled placeholder="100 Hrs" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Costo Curso</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">$250.000</Label>
-              <!-- <input type="text" disabled placeholder="$250.000" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Detalle</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">Curso de fundamentos a la programación</Label>
-              <!-- <input type="text" disabled placeholder="Curso de fundamentos a la programación" class="w-80 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Certificado</Label>
-              <label class="inline-block w-80 mr-5 text-left font-medium text-gray-600"><a href=""> Certificado.pdf</a></label>
-              <!-- <input type="file" class="w-auto py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="mt-4">
-              <p class="font-bold">Información de Aprobación</p><hr class="border mb-4">
-          </div>
-          <div class="flex mb-2 w-full">
-              <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Estado</Label>
-              <Label class="inline-block w-32 mr-5 text-left font-medium text-green-600">Aprobado</Label>
-              <!-- <select id="" name="" autocomplete="" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
-                  <option class="text-green-700">Aprobado</option>
-                  <option class="text-red-700">Rechazado</option>
-                  <option class="text-yellow-700">Pendiente</option>
-                  <option>Seleccionar</option>
-                </select> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Fecha Aprobación</Label>
-              <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">20/03/2021</Label>
-              <!-- <input type="date" value="2021-03-20" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none disabled:bg-gray-300 focus:outline-none focus:bg-white focus:border-gray-500" disabled> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Detalle Aprobación</Label>
-              <Label class="inline-block w-80 mr-5 text-left font-medium text-gray-600">Información completa, curso aprobado.</Label>
-              <!-- <input type="text" placeholder="Información completa, curso aprobado." class="w-80 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
-            </div>
-            <div class="flex mb-2 w-full">
-              <!-- <button class="absolute right-5 ml-80 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700">Agregar</button> -->
-            </div>
-
-          </form>
-        </div>
-    </div>
-  </div>
-</div>
-
-
+ <div id="modal-edit" class="modal fixed max-w-full max-h-full z-30 flex flex-col rounded bg-gray-100 shadow lg:max-w-4xl hidden">
+   <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded z-10 absolute right-5 top-1" id="close-button" onclick="closeModalEdit()">Cerrar</button>
+   <div class="absolute left-0 top-0 w-full h-full overflow-auto">
+     <div class="pt-2 px-4">
+       <h2 class="text-xl font-semibold text-center">Detalle Curso Externo</h2>
+         <div class="container mx-auto my-2 p-6 bg-gray-100 flex items-center justify-start w-full">
+           <form action="" class="w-full">
+               <div>
+                   <p class="font-bold">Información del Curso</p><hr class="border mb-4">
+               </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Curso</Label>
+               <input type="text" disabled placeholder="Fundamentos 1" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Establecimiento</Label>
+               <input type="text" disabled placeholder="Universidad Estatal" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Fecha Curso</Label>
+               <input type="date" disabled value="2021-03-20" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Horas Cursadas</Label>
+               <input type="text" disabled placeholder="100 Hrs" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Costo Curso</Label>
+               <input type="text" disabled placeholder="$250.000" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Detalle</Label>
+               <input type="text" disabled placeholder="Curso de fundamentos a la programación" class="w-80 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-32 mr-5 text-left font-medium text-gray-600">Certificado</Label>
+               <label class="inline-block w-32 mr-5 text-left font-medium text-gray-600"><a href=""> Certificado.pdf</a></label>
+               <!-- <input type="file" class="w-auto py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500"> -->
+             </div>
+             <div class="mt-4">
+               <p class="font-bold">Información de Aprobación</p><hr class="border mb-4">
+           </div>
+           <div class="flex mb-2 w-full">
+               <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Estado</Label>
+               <select id="" name="" autocomplete="" class="w-64 py-1 border border-gray-200 bg-white rounded focus:outline-none focus:bg-white focus:border-gray-500">
+                   <option class="text-green-700">Aprobado</option>
+                   <option class="text-red-700">Rechazado</option>
+                   <option class="text-yellow-700">Pendiente</option>
+                   <option>Seleccionar</option>
+                 </select>
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Fecha Aprobación</Label>
+               <input type="date" value="2021-03-20" class="w-64 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none disabled:bg-gray-300 focus:outline-none focus:bg-white focus:border-gray-500" disabled>
+             </div>
+             <div class="flex mb-2 w-full">
+               <Label class="inline-block w-36 mr-5 text-left font-medium text-gray-600">Detalle Aprobación</Label>
+               <input type="text" placeholder="Información completa, curso aprobado." class="w-80 py-1 border border-gray-200 rounded bg-white leading-tight appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+             </div>
+             <div class="flex mb-2 w-full">
+               <button class="absolute right-5 ml-80 px-4 py-2 rounded bg-red-600 shadow text-white font-bold focus:outline-none focus:shadow-outline hover:bg-red-700">Agregar</button>
+             </div>
+ 
+           </form>
+         </div>
+     </div>
+   </div>
+ </div>
 <!-- fin contenido -->
 </body>
 <!-- Footer -->
